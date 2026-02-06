@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu eSIM eSIM's Chegou!</title>
+    <!-- Importando Montserrat (Fonte da Marca) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET E ESTRUTURA --- */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f0f2f5; 
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            -webkit-font-smoothing: antialiased; 
+            color: #333;
+        }
+        table { border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { border: 0; -ms-interpolation-mode: bicubic; }
+        
+        /* --- CORES DA MARCA --- */
+        /* Roxo Brand: #512292 | Ciano Brand: #00e5ff | Gradiente Feliz: Roxo -> Pêssego */
+
+        .wrapper { width: 100%; table-layout: fixed; background-color: #f0f2f5; padding-bottom: 60px; }
+        
+        .main-container { 
+            background-color: #ffffff; 
+            margin: 0 auto; 
+            width: 100%; 
+            max-width: 640px; 
+            border-radius: 24px; 
+            overflow: hidden; 
+            box-shadow: 0 12px 40px rgba(81, 34, 146, 0.08); /* Sombra suave roxa */
+        }
+        
+        /* --- HEADER PREMIUM (Modificado) --- */
+        .header { 
+            /* O mesmo gradiente feliz da Área do Cliente */
+            background: linear-gradient(135deg, #512292 0%, #a259ff 50%, #ff7e5f 100%);
+            padding: 50px 20px 40px 20px; 
+            text-align: center; 
+            position: relative;
+        }
+
+        /* Container do Logo (Efeito Badge/Card) */
+        .logo-card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 12px 25px;
+            display: inline-block;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra para "flutuar" */
+        }
+        
+        /* Logo Crop Fix */
+        .logo-img { 
+            width: 180px; 
+            height: 70px; 
+            object-fit: cover; 
+            object-position: center; 
+            display: block; 
+            margin: 0 auto; 
+        }
+        
+        /* --- CONTEÚDO --- */
+        .body-content { padding: 35px 35px 50px 35px; }
+        
+        /* Saudação */
+        .greeting-title { 
+            font-size: 26px; 
+            color: #512292; /* Roxo da marca */
+            font-weight: 800; 
+            margin: 0 0 15px 0; 
+            text-align: center; 
+            letter-spacing: -0.5px; 
+        }
+        
+        .greeting-text { 
+            font-size: 15px; 
+            color: #666; 
+            text-align: center; 
+            margin-bottom: 45px; 
+            line-height: 1.6; 
+            font-weight: 500;
+        }
+
+        /* --- GRID DE INFORMAÇÕES (2 COLUNAS) --- */
+        .two-col-table { width: 100%; }
+        .col-left, .col-right { vertical-align: top; padding: 0 15px; width: 50%; }
+        
+        .info-box { margin-bottom: 10px; }
+        
+        /* Títulos das Seções com detalhe Ciano */
+        .section-header-wrap { margin-bottom: 20px; border-bottom: 2px solid #f5f5f5; position: relative; padding-bottom: 8px; }
+        .section-header { 
+            font-size: 14px; 
+            color: #512292; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+        }
+        .section-accent {
+            position: absolute; bottom: -2px; left: 0;
+            width: 40px; height: 3px;
+            background-color: #00e5ff; /* Ciano vibrante */
+            border-radius: 2px;
+        }
+        
+        .data-row { margin-bottom: 15px; font-size: 14px; display: block; }
+        .data-label { color: #9ca3af; font-weight: 700; display: block; font-size: 11px; text-transform: uppercase; margin-bottom: 3px; letter-spacing: 0.5px; }
+        .data-value { color: #333; font-weight: 600; font-size: 15px; }
+        
+        /* Badge Recarga */
+        .recharge-box { 
+            background-color: #e0faff; 
+            border: 1px solid #b2ebf2; 
+            color: #00acc1; 
+            padding: 5px 12px; 
+            border-radius: 20px; 
+            font-weight: 700; 
+            font-size: 11px;
+            display: inline-block;
+            margin-top: 2px;
+            text-transform: uppercase;
+        }
+
+        /* --- VIDEOS --- */
+        .video-section { 
+            background-color: #faf9fc; /* Fundo muito levemente lilás */
+            border: 1px solid #efeff5;
+            border-radius: 20px; 
+            padding: 30px; 
+            text-align: center; 
+            margin-top: 40px; 
+        }
+        .video-title { font-size: 18px; color: #512292; font-weight: 700; margin-bottom: 20px; }
+        
+        .btn-video {
+            display: inline-block;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #333;
+            width: 130px;
+            margin: 5px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            vertical-align: top;
+        }
+        .btn-video:hover { 
+            border-color: #512292; 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 15px rgba(81, 34, 146, 0.1); 
+        }
+        .video-icon-img { display: block; margin: 0 auto 8px auto; width: 32px; height: 32px; }
+        .video-label { display: block; font-weight: 700; font-size: 14px; color: #512292; }
+        .video-sub { font-size: 11px; color: #888; display: block; margin-top: 2px; }
+
+        /* --- CTA ÁREA DO CLIENTE (O PONTO DE VIDA!) --- */
+        .cta-section { 
+            /* Gradiente inspirado no site: Roxo -> Laranja/Rosa */
+            background: linear-gradient(135deg, #512292 0%, #a259ff 50%, #ff7e5f 100%); 
+            border-radius: 20px; 
+            padding: 40px 30px; 
+            text-align: center; 
+            color: #ffffff; 
+            margin-top: 40px;
+            box-shadow: 0 15px 30px rgba(81, 34, 146, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        /* Efeito de brilho */
+        .cta-section::before {
+            content: ''; position: absolute; top: -50px; right: -50px;
+            width: 150px; height: 150px; background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .cta-text { font-size: 16px; margin-bottom: 25px; line-height: 1.5; font-weight: 500; color: #fff; }
+        
+        .btn-main {
+            background-color: #ffffff;
+            color: #512292; /* Texto roxo no botão branco */
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 15px;
+            display: inline-block;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s;
+        }
+        .btn-main:hover { transform: scale(1.03); background-color: #f8f8f8; }
+        .cta-note { font-size: 12px; color: rgba(255,255,255, 0.85); margin-top: 20px; font-weight: 400; }
+
+        /* --- POLÍTICAS --- */
+        .policy-section { margin-top: 45px; border-top: 1px solid #f0f0f0; padding-top: 35px; }
+        .policy-item { padding: 12px 0; border-bottom: 1px dashed #e5e5e5; }
+        .policy-item:last-child { border-bottom: none; }
+        
+        .policy-title { color: #512292; font-weight: 700; font-size: 13px; margin-bottom: 4px; display: block; }
+        .policy-desc { color: #666; font-size: 13px; line-height: 1.5; }
+
+        /* --- FOOTER --- */
+        .footer { background-color: #f0f2f5; padding: 40px 20px; text-align: center; color: #888; font-size: 12px; }
+        .footer-logo { font-weight: 800; color: #512292; font-size: 18px; margin-bottom: 15px; display: block; letter-spacing: -0.5px; }
+
+        /* --- MOBILE --- */
+        @media screen and (max-width: 520px) {
+            .two-col-table, .col-left, .col-right { display: block; width: 100% !important; padding: 0 !important; }
+            .col-left { margin-bottom: 30px; }
+            .btn-video { width: 100%; box-sizing: border-box; margin: 5px 0; }
+            .body-content { padding: 30px 20px; }
+            .header { padding: 35px 20px 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <table class="main-container" align="center">
+            
+            <!-- HEADER COM VIDA -->
+            <tr>
+                <td class="header">
+                    <!-- 
+                        Badge/Cartão branco flutuante para o logo.
+                        Isso cria um visual de "adesivo de viagem" e resolve
+                        o problema do fundo branco da imagem JPG.
+                    -->
+                    <div class="logo-card">
+                        <img src="logo.png" alt="eSIM's Logo" class="logo-img">
+                    </div>
+                </td>
+            </tr>
+
+            <!-- CORPO -->
+            <tr>
+                <td class="body-content">
+                    
+                    <!-- SAUDAÇÃO -->
+                    <h1 class="greeting-title">Olá! Seja bem-vindo! ✈️</h1>
+                    <p class="greeting-text">
+                        Estamos muito felizes com sua compra. Tudo pronto para você se conectar ao mundo!
+                    </p>
+
+                    <!-- GRID DE 2 COLUNAS -->
+                    <table class="two-col-table">
+                        <tr>
+                            <!-- ESQUERDA: RESUMO -->
+                            <td class="col-left">
+                                <div class="info-box">
+                                    <div class="section-header-wrap">
+                                        <span class="section-header">📄 Resumo do Pedido</span>
+                                        <span class="section-accent"></span>
+                                    </div>
+                                    
+                                    <div class="data-row">
+                                        <span class="data-label">Plano</span>
+                                        <span class="data-value">[NOME_DO_PLANO]</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Pacote de Dados</span>
+                                        <span class="data-value">[DADOS_API_RESP]</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Operadora</span>
+                                        <span class="data-value">[OPERADORA_API]</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Número do Pedido</span>
+                                        <span class="data-value">#[NUMERO_PEDIDO]</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Data</span>
+                                        <span class="data-value">[DATA_COMPRA]</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Valor</span>
+                                        <span class="data-value" style="color: #512292; font-weight: 800;">[VALOR_TOTAL]</span>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <!-- DIREITA: INFORMAÇÕES GERAIS -->
+                            <td class="col-right">
+                                <div class="info-box">
+                                    <div class="section-header-wrap">
+                                        <span class="section-header">🌍 Informações Gerais</span>
+                                        <span class="section-accent"></span>
+                                    </div>
+                                    
+                                    <div class="data-row">
+                                        <span class="data-label">ICC-ID</span>
+                                        <span class="data-value" style="font-family: 'Courier New', monospace; letter-spacing: -0.5px; background: #f7f7f7; padding: 2px 5px; border-radius: 4px;">[ICCID_CODIGO]</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Velocidade</span>
+                                        <span class="data-value">Até 5G (conforme rede local)</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Roteador Suportado</span>
+                                        <span class="data-value">SIM</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Opção de Recarga</span>
+                                        <span class="recharge-box">[INFO_API_RECARGA]</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">eKYC (Identidade)</span>
+                                        <span class="data-value">Não é necessária</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">SMS / Ligações Locais</span>
+                                        <span class="data-value">N/A (Apenas Dados)</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- VIDEOS -->
+                    <div class="video-section">
+                        <div class="video-title">📲 Como instalar seu eSIM?</div>
+                        
+                        <a href="[LINK_VIDEO_IPHONE]" class="btn-video">
+                            <img src="https://cdn-icons-png.flaticon.com/512/0/747.png" alt="Apple Logo" class="video-icon-img">
+                            <span class="video-label">iPhone</span>
+                            <span class="video-sub">Ver Tutorial iOS</span>
+                        </a>
+                        
+                        <a href="[LINK_VIDEO_ANDROID]" class="btn-video">
+                            <img src="https://cdn-icons-png.flaticon.com/512/174/174836.png" alt="Android Logo" class="video-icon-img">
+                            <span class="video-label">Android</span>
+                            <span class="video-sub">Ver Tutorial</span>
+                        </a>
+                    </div>
+
+                    <!-- CTA (ÁREA DO CLIENTE - O Ponto de Vida!) -->
+                    <div class="cta-section">
+                        <div style="font-size: 30px; margin-bottom: 10px;">🗝️</div>
+                        <div class="cta-text">
+                            Para acessar seu <strong>QR CODE</strong> e gerenciar seu plano, acesse sua conta agora mesmo.
+                        </div>
+                        <a href="[LINK_AREA_CLIENTE]" class="btn-main">
+                            Acessar Área do Cliente
+                        </a>
+                        <p class="cta-note">
+                            *Utilize o e-mail e senha cadastrados na compra para fazer o login.
+                        </p>
+                    </div>
+
+                    <!-- POLÍTICAS -->
+                    <div class="policy-section">
+                        <span class="section-header" style="color: #999; border-bottom: none; display:block; margin-bottom: 15px;">📋 Política de Ativação e Detalhes</span>
+                        
+                        <div class="policy-item">
+                            <span class="policy-title">Instalação</span>
+                            <span class="policy-desc">Recomendamos instalar seu eSIM <strong>1 dia antes</strong> da sua viagem. Se estiver em país coberto, o uso iniciará imediatamente.</span>
+                        </div>
+                        
+                        <div class="policy-item">
+                            <span class="policy-title">Ativação</span>
+                            <span class="policy-desc">Seu plano ativa automaticamente ao conectar na rede do país de destino. Mantenha o "Roaming de Dados" ativado.</span>
+                        </div>
+                        
+                        <div class="policy-item">
+                            <span class="policy-title">Compatibilidade</span>
+                            <span class="policy-desc">Válido apenas para smartphones desbloqueados e compatíveis com tecnologia eSIM.</span>
+                        </div>
+                        
+                        <div class="policy-item">
+                            <span class="policy-title">Plano Data Plan</span>
+                            <span class="policy-desc">O plano encerra ao consumir toda a franquia de dados OU ao término dos dias contratados (o que ocorrer primeiro). Mantenha seu número original no WhatsApp.</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <!-- FOOTER -->
+            <tr>
+                <td class="footer">
+                    <span class="footer-logo">eSIM's.com.br</span>
+                    <p>Você está pronto para explorar o mundo. Boa viagem! 🌍</p>
+                    <p style="margin-top: 20px; font-size: 11px;">
+                        &copy; 2026 eSIM's. Todos os direitos reservados.
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
